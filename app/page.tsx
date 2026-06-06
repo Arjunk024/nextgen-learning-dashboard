@@ -23,24 +23,24 @@ export default async function Home() {
 
       <section className="flex-1 p-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          <HeroTile totalCourses={courses.length} />
+          <HeroTile totalCourses={courses?.length || 0} />
 
           {courses?.map((course) => (
-          <CourseCard
-  key={course.id}
-  title={course.title}
-  progress={course.progress}
-  iconName={course.icon_name}
-/>
+            <CourseCard
+              key={course.id}
+              title={course.title}
+              progress={course.progress}
+              iconName={course.icon_name}
+            />
           ))}
 
           <ActivityTile />
-        </div>
-      <footer className="mt-10 text-center text-zinc-500 col-span-full">
-  Built with Next.js • Supabase • Framer Motion
-</footer>
 
-</section>
+          <footer className="col-span-full mt-10 text-center text-zinc-500">
+            Built with Next.js • Supabase • Framer Motion
+          </footer>
+        </div>
+      </section>
     </main>
   );
 }
